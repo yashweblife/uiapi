@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev:server": "nodemon",
+    "dev:client": "cd src/public && npm run dev",
+    "build": "cd src/public && npm run build && cd .. && tsc"
   },
   "keywords": [],
   "author": "",
