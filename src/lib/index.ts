@@ -15,6 +15,5 @@ export function regulate(app: Application) {
             })
         }
     })
-    console.log(routes)
     return (routes);
 }
