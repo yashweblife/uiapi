@@ -1,7 +1,6 @@
 import express from "express";
 import { regulate } from "./lib/index";
 const app = express();
-app.
 app.use(express.json())
 app.use(express.static("public/dist"))
 app.get("/", () => { }, (req, res) => {
