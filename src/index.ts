@@ -3,7 +3,7 @@ import { regulate } from "./lib/index";
 const app = express();
 app.use(express.json())
 app.use(express.static("public/dist"))
-app.get("/", () => { }, (req, res) => {
+app.get("/", (req, res) => {
     res.send("<h1>test</h1>")
 })
 app.post("/test", () => { }, (req, res) => {
