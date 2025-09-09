@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import path from "path";
 export function regulate(app: Application) {
     const __dirname = path.resolve();
-    const publicPath = path.join(__dirname, "/src/public");
+    const publicPath = path.join(__dirname, "/src/public/dist");
     console.log("test", publicPath)
     const routes: {
         path: string
@@ -16,7 +16,7 @@ export function regulate(app: Application) {
             })
         }
     })
-    app.use(express.static("public/dist"))
+    app.use(express.static(publicPath));
     app.get("/dest", (req, res) => {
         res.sendFile(path.join(publicPath, "index.html"))
     })
