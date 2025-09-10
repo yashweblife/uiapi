@@ -11,6 +11,17 @@ function App() {
     setRoutes(data)
     console.log(data); 
   }
+  const attemptSend = async (route: { path: string; method: string; }) => {
+    try {
+      const res = await fetch(route.path, {
+        method: route.method
+      })
+      const data = await res.json()
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
       <h1>Routes</h1>
@@ -19,6 +30,9 @@ function App() {
           <li key={route.path}>
             <h2>{route.path}</h2>
             <p>Method: {route.method}</p>
+            <button onClick={()=>{
+              attemptSend(route)
+            }}>Send</button>
           </li>
         ))}
       </ul>
