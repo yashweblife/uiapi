@@ -9,7 +9,6 @@ export function TableHeader({ headers }: { headers: string[] }) {
         >
             <tr
                 style={{
-                    padding: '1em',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '1em',
@@ -38,7 +37,7 @@ export function TableRow({ children }: { children: ReactNode }) {
     return (
         <tr
             style={{
-                padding: '1em',
+                padding: '0.5em',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '1em',
@@ -53,8 +52,7 @@ export function TableColumn({ children }: { children: ReactNode }) {
     return (
         <td
             style={{
-                padding: "12px",
-                fontSize: "14px",
+                padding: "0.5em",
                 verticalAlign: "middle",
                 borderBottom: "1px dashed rgba(255,255,255,0.02)",
                 overflow: "hidden",
@@ -74,17 +72,15 @@ export default function Table({ children }: { children: ReactNode }) {
                     "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
                 padding: "18px",
                 borderRadius: "12px",
-                boxShadow: "0 6px 18px rgba(2,6,23,0.6)",
                 overflowX: "auto",
-                border: "1px solid rgba(255,255,255,0.03)",
+                border: "1px solid rgba(26, 26, 26, 0.3)",
             }}
         >
             <table
                 style={{
-                    width: "100%",
                     borderCollapse: "separate",
                     borderSpacing: 0,
-                    minWidth: "720px",
+                    width: "100%",
                     tableLayout: "fixed",
                     background: "linear-gradient(180deg, rgba(255,255,255,0.015), transparent)",
                     color: "inherit",
