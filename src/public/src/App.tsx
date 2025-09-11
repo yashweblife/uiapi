@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./components/Button/Button";
+import List, { Item, ListFooter, ListHeader } from "./components/List/List";
 
 function App() {
   const [routes, setRoutes] = useState<{ path: string; method: string; }[]>([]);
@@ -28,17 +29,19 @@ function App() {
       <h1>Routes</h1>
       <ul>
         {routes.map((route) => (
-          <li key={route.path}>
-            <h2>{route.path}</h2>
-            <p>Method: {route.method}</p>
-            <Button
-              click={() => {
-                attemptSend(route)
-              }}
-            >
-              Send
-            </Button>
-          </li>
+          <List key={route.path}>
+            <ListHeader title={route.path} />
+            <Item>Method: {route.method}</Item>
+            <ListFooter>
+              <Button
+                click={() => {
+                  attemptSend(route)
+                }}
+              >
+                Send
+              </Button>
+            </ListFooter>
+          </List>
         ))}
       </ul>
     </div>
