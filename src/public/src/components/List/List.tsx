@@ -20,7 +20,7 @@ export function ListFooter({ children }: { children?: ReactNode }) {
                 padding: '1em',
                 display: 'flex',
                 alignItems: 'center',
-                borderTop: '1px solid rgb(200,200,200)',
+                marginTop: '1em',
             }}
         >
             {children}
