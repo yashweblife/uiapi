@@ -1,5 +1,4 @@
-import type { ReactNode } from "react"
-
+import type { CSSProperties, ReactNode } from "react"
 export function ListHeader({ title }: { title?: string }) {
     return (
         <h1>{title}</h1>
@@ -18,7 +17,10 @@ export function Item({ children }: { children?: ReactNode }) {
         <li
             style={{
                 padding: '1em',
-                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                borderBottom: '1px solid rgb(200,200,200)',
+                gap: '1em',
             }}
         >
             {children}
@@ -30,12 +32,20 @@ type ListProps = {
     variant?: 'default' | 'number' | 'bullet'
 }
 export default function List({ children, variant }: ListProps) {
+    const defaultStyle: CSSProperties = {
+        boxShadow: '0 0 5px rgb(200,200,200)',
+        padding: '1em',
+        borderRadius: '1em',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1em',
+    }
     if (variant === 'bullet') {
         return (
             <ul
                 style={{
-                    border: '1px solid black',
-                    padding: '1em',
+                    ...defaultStyle,
+                    listStyle: 'disc',
                 }}
             >
                 {children}
@@ -46,9 +56,8 @@ export default function List({ children, variant }: ListProps) {
         return (
             <ol
                 style={{
-                    border: '1px solid black',
-                    padding: '1em',
-                    listStyle: 'none',
+                    ...defaultStyle,
+                    listStyle: 'decimal',
                 }}
             >
                 {children}
@@ -58,8 +67,7 @@ export default function List({ children, variant }: ListProps) {
     return (
         <ul
             style={{
-                border: '1px solid black',
-                padding: '1em',
+                ...defaultStyle,
                 listStyle: 'none',
             }}
         >
