@@ -15,19 +15,55 @@ export function ListFooter({ children }: { children?: ReactNode }) {
 
 export function Item({ children }: { children?: ReactNode }) {
     return (
-        <li>
+        <li
+            style={{
+                padding: '1em',
+                textDecoration: 'none',
+            }}
+        >
             {children}
         </li>
     )
 }
-
-export default function List({ children }: { children?: ReactNode }) {
-    return (
-        <>
-            <ListHeader title="List Header" />
-            <ul>
-                {children&&children}
+type ListProps = {
+    children: ReactNode,
+    variant?: 'default' | 'number' | 'bullet'
+}
+export default function List({ children, variant }: ListProps) {
+    if (variant === 'bullet') {
+        return (
+            <ul
+                style={{
+                    border: '1px solid black',
+                    padding: '1em',
+                }}
+            >
+                {children}
             </ul>
-        </>
+        )
+    }
+    if (variant === 'number') {
+        return (
+            <ol
+                style={{
+                    border: '1px solid black',
+                    padding: '1em',
+                    listStyle: 'none',
+                }}
+            >
+                {children}
+            </ol>
+        )
+    }
+    return (
+        <ul
+            style={{
+                border: '1px solid black',
+                padding: '1em',
+                listStyle: 'none',
+            }}
+        >
+            {children}
+        </ul>
     )
 }
