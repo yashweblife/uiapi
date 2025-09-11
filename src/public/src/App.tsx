@@ -18,8 +18,18 @@ function App() {
       const res = await fetch(route.path, {
         method: route.method
       })
-      const data = await res.json()
-      console.log(data)
+      try {
+        const data = await res.json()
+        console.log(data);
+      } catch (error) {
+        console.log(error)
+      }
+      try {
+        const data = await res.text()
+        console.log(data);
+      } catch (error) {
+        console.log(error)
+      }
     } catch (error) {
       console.log(error)
     }
