@@ -6,8 +6,17 @@ app.use(express.static("public/dist"))
 app.get("/", (req, res) => {
     res.send("<h1>test</h1>")
 })
-app.post("/test", () => { }, (req, res) => {
+app.get("/test", (req, res) => {
+    console.log('test');
     res.send("test")
+})
+app.get("/json", (req, res) => {
+    console.log('json');
+    const data = {
+        test: "test",
+        test2: "test2"
+    }
+    res.send(data)
 })
 regulate(app);
 
