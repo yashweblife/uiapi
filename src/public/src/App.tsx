@@ -1,15 +1,30 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, type HTMLProps, type ReactNode } from "react";
+type ButtonProps = {
+  click: () => void,
+  children: ReactNode
+  props?: HTMLProps<HTMLButtonElement>
+}
+function Button({
+  click,
+  children,
+  ...props
+}: ButtonProps) {
+  return (
+    <button onClick={click} {...props}>
+      {children}
+    </button>
+  )
+}
 function App() {
-  const [routes, setRoutes] = useState<{ path: string; method: string;}[]>([]);
+  const [routes, setRoutes] = useState<{ path: string; method: string; }[]>([]);
   useEffect(() => {
     getData();
-  },[])
+  }, [])
   const getData = async () => {
     const res = await fetch("/dest/routes")
     const data = await res.json()
     setRoutes(data)
-    console.log(data); 
+    console.log(data);
   }
   const attemptSend = async (route: { path: string; method: string; }) => {
     try {
@@ -30,9 +45,13 @@ function App() {
           <li key={route.path}>
             <h2>{route.path}</h2>
             <p>Method: {route.method}</p>
-            <button onClick={()=>{
-              attemptSend(route)
-            }}>Send</button>
+            <Button
+              click={() => {
+                attemptSend(route)
+              }}
+            >
+              Send
+            </Button>
           </li>
         ))}
       </ul>
