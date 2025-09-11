@@ -1,12 +1,28 @@
 import type { CSSProperties, ReactNode } from "react"
 export function ListHeader({ title }: { title?: string }) {
     return (
-        <h1>{title}</h1>
+        <header
+            style={{
+                padding: '1em',
+                display: 'flex',
+                alignItems: 'center',
+                borderBottom: '1px solid rgb(200,200,200)',
+            }}
+        >
+            <h1>{title}</h1>
+        </header>
     )
 }
 export function ListFooter({ children }: { children?: ReactNode }) {
     return (
-        <div>
+        <div
+            style={{
+                padding: '1em',
+                display: 'flex',
+                alignItems: 'center',
+                borderTop: '1px solid rgb(200,200,200)',
+            }}
+        >
             {children}
         </div>
     )
