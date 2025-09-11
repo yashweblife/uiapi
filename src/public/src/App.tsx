@@ -1,20 +1,6 @@
-import { useEffect, useState, type HTMLProps, type ReactNode } from "react";
-type ButtonProps = {
-  click: () => void,
-  children: ReactNode
-  props?: HTMLProps<HTMLButtonElement>
-}
-function Button({
-  click,
-  children,
-  ...props
-}: ButtonProps) {
-  return (
-    <button onClick={click} {...props}>
-      {children}
-    </button>
-  )
-}
+import { useEffect, useState } from "react";
+import Button from "./components/Button";
+
 function App() {
   const [routes, setRoutes] = useState<{ path: string; method: string; }[]>([]);
   useEffect(() => {
