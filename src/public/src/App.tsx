@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./components/Button/Button";
-import List, { Item, ListHeader } from "./components/List/List";
+import Table, { TableColumn, TableHeader, TableRow } from "./components/Table";
 type FetchMethod = 'get' | 'put' | 'post' | 'delete'
 function assertMethodIntoColors(method: FetchMethod) {
   let output = '';
@@ -44,34 +44,23 @@ function App() {
   }
   return (
     <div>
-      <List>
-        <ListHeader title={"Routes"} />
-        {routes.map((route) => (
-          <Item>
-            <span style={{
-              backgroundColor: assertMethodIntoColors(route.method),
-              padding: '0.5em 2em',
-              borderRadius: '0.5em'
-            }}>{route.method.toUpperCase()}</span>
-            <span
-              style={{
-                padding: '0.5em 2em',
-                borderRadius: '0.5em',
-                marginLeft: '1em',
-                boxShadow: '0 0 5px rgb(200,200,200)',
-                textAlign: 'left'
-              }}
-            >{route.path}</span>
-            <Button
-              click={() => {
-                attemptSend(route)
-              }}
-            >
-              Send
-            </Button>
-          </Item>
-        ))}
-      </List>
+      <Table>
+        <TableHeader headers={['Path', 'Method', 'Send']} />
+        {
+          routes.map((route) => {
+            return (
+              <TableRow>
+                <TableColumn>{route.path}</TableColumn>
+                <TableColumn>{route.method}</TableColumn>
+                {route.method == 'get' ? <TableColumn>Attach Body?</TableColumn> : null}
+                <TableColumn>
+                  <Button click={() => attemptSend(route)}>Send</Button>
+                </TableColumn>
+              </TableRow>
+            )
+          })
+        }
+      </Table>
     </div>
   )
 }
