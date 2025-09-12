@@ -54,47 +54,26 @@ type ListProps = {
     children: ReactNode,
     variant?: 'default' | 'number' | 'bullet'
 }
-export default function List({ children, variant }: ListProps) {
+export default function List({ children, variant = 'default' }: ListProps) {
     const defaultStyle: CSSProperties = {
         boxShadow: '0 0 5px rgb(200,200,200)',
         padding: '1em',
         borderRadius: '1em',
-        // display: 'flex',
-        // flexDirection: 'column',
-        // gap: '1em',
     }
-    if (variant === 'bullet') {
-        return (
-            <ul
-                style={{
-                    ...defaultStyle,
-                    listStyle: 'disc',
-                }}
-            >
-                {children}
-            </ul>
-        )
-    }
-    if (variant === 'number') {
-        return (
-            <ol
-                style={{
-                    ...defaultStyle,
-                    listStyle: 'decimal',
-                }}
-            >
-                {children}
-            </ol>
-        )
+    const listStyle = {
+        default: 'none',
+        bullet: 'disc',
+        number: 'decimal'
     }
     return (
         <ul
             style={{
                 ...defaultStyle,
-                listStyle: 'none',
+                listStyle: listStyle[variant],
             }}
         >
             {children}
         </ul>
     )
+
 }
