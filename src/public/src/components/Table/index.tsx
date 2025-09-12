@@ -21,10 +21,8 @@ export function TableHeader({ headers }: { headers: string[] }) {
                         style={{
                             position: "sticky",
                             top: 0,
-                            padding: "14px 12px",
-                            textAlign: "left" as const,
-                            letterSpacing: "0.02em",
-                            color: "#13191bff",
+                            padding: "1em 0.8em",
+                            textAlign: "left",
                             borderBottom: "1px solid rgba(255,255,255,0.04)",
                         }}
                     >{header}</th>
@@ -68,8 +66,6 @@ export default function Table({ children }: { children: ReactNode }) {
     return (
         <div
             style={{
-                background:
-                    "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
                 padding: "18px",
                 borderRadius: "12px",
                 overflowX: "auto",
@@ -82,7 +78,6 @@ export default function Table({ children }: { children: ReactNode }) {
                     borderSpacing: 0,
                     width: "100%",
                     tableLayout: "fixed",
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.015), transparent)",
                     color: "inherit",
                 }}
             >
