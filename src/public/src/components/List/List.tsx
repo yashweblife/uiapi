@@ -54,17 +54,17 @@ type ListProps = {
     children: ReactNode,
     variant?: 'default' | 'number' | 'bullet'
 }
+const defaultStyle: CSSProperties = {
+    boxShadow: '0 0 5px rgb(200,200,200)',
+    padding: '1em',
+    borderRadius: '1em',
+}
+const listStyle = {
+    default: 'none',
+    bullet: 'disc',
+    number: 'decimal'
+}
 export default function List({ children, variant = 'default' }: ListProps) {
-    const defaultStyle: CSSProperties = {
-        boxShadow: '0 0 5px rgb(200,200,200)',
-        padding: '1em',
-        borderRadius: '1em',
-    }
-    const listStyle = {
-        default: 'none',
-        bullet: 'disc',
-        number: 'decimal'
-    }
     return (
         <ul
             style={{
