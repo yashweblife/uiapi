@@ -14,6 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
+        elevation: 1,
         children: <>
             <CardHeader>
                 <h1>Card Header</h1>
@@ -46,3 +47,39 @@ export const Default: Story = {
         </>
     }
 };
+
+export const Elevation: Story = {
+    args: {
+        children: <>
+            <CardHeader>
+                <h1>Card Header</h1>
+                <Button click={() => { }}>Button</Button>
+            </CardHeader>
+            <CardBody>
+                <Table>
+                    <TableHeader headers={['Header 1', 'Header 2', 'Header 3']} />
+                    <TableRow>
+                        <TableColumn>Cell 1</TableColumn>
+                        <TableColumn>Cell 2</TableColumn>
+                        <TableColumn>Cell 2</TableColumn>
+                    </TableRow>
+                    <TableRow>
+                        <TableColumn>Cell 1</TableColumn>
+                        <TableColumn>Cell 2</TableColumn>
+                        <TableColumn>Cell 2</TableColumn>
+                    </TableRow>
+                    <TableRow>
+                        <TableColumn>Cell 1</TableColumn>
+                        <TableColumn>Cell 2</TableColumn>
+                        <TableColumn>Cell 2</TableColumn>
+                    </TableRow>
+                </Table>
+            </CardBody>
+            <CardAction>
+                <Button click={() => { }}>Button</Button>
+                <Button variant="secondary" click={() => { }}>Button</Button>
+            </CardAction>
+        </>
+        , elevation: 0
+    }
+}
