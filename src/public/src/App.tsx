@@ -45,13 +45,22 @@ function App() {
   return (
     <div>
       <Table>
-        <TableHeader headers={['Path', 'Method', 'Send']} />
+        <TableHeader headers={['Path', 'Method', 'Body', 'Send']} />
         {
           routes.map((route) => {
             return (
               <TableRow>
                 <TableColumn>{route.path}</TableColumn>
-                <TableColumn>{route.method}</TableColumn>
+                <TableColumn>
+                  <p
+                    style={{
+                      backgroundColor: assertMethodIntoColors(route.method),
+                      padding:'0.5em',
+                    }}
+                  >
+                    {route.method}
+                  </p>
+                </TableColumn>
                 {route.method == 'get' ? <TableColumn>
                   <Button click={() => { }}>
                     Attach Body?
