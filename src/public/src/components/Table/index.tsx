@@ -60,7 +60,9 @@ export function TableColumn({ children }: { children: ReactNode }) {
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 minWidth: '120px',
-                border: "1px solid rgba(26, 26, 26, 0.3)"
+                border: "1px solid rgba(26, 26, 26, 0.3)",
+                width:'100%',
+                height: '100%'
             }}
             colSpan={1}
         >
