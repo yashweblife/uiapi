@@ -8,8 +8,6 @@ type ButtonProps = {
     size?: "small" | "medium" | "large"
 }
 
-
-
 export default function Button({
     click,
     children,
