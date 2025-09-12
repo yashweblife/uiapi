@@ -5,14 +5,16 @@ export function TableHeader({ headers }: { headers: string[] }) {
         <thead
             style={{
                 borderBottom: '1px solid rgb(200,200,200)',
+                backgroundColor: "rgb(32,32,32)",
+                width: '100%'
             }}
         >
             <tr
                 style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '1em',
                     borderBottom: '1px solid rgb(200,200,200)',
+                    width: '100%'
                 }}
             >
                 {headers.map((header) => (
@@ -21,9 +23,12 @@ export function TableHeader({ headers }: { headers: string[] }) {
                         style={{
                             position: "sticky",
                             top: 0,
+                            width: "100%",
                             padding: "1em 0.8em",
                             textAlign: "left",
-                            borderBottom: "1px solid rgba(255,255,255,0.04)",
+                            border: "1px solid rgb(100,100,100)",
+                            minWidth: "100px",
+                            color: 'white'
                         }}
                     >{header}</th>
                 ))}
@@ -35,10 +40,8 @@ export function TableRow({ children }: { children: ReactNode }) {
     return (
         <tr
             style={{
-                padding: '0.5em',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1em',
                 borderBottom: '1px solid rgb(200,200,200)',
             }}
         >
@@ -56,10 +59,26 @@ export function TableColumn({ children }: { children: ReactNode }) {
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
+                minWidth: '120px',
+                border: "1px solid rgba(26, 26, 26, 0.3)"
             }}
+            colSpan={1}
         >
             {children}
         </td>
+    )
+}
+export function TableFooter({ children }: { children: ReactNode }) {
+    return (
+        <tfoot
+            style={{
+                backgroundColor: "rgb(32,32,32)",
+                border: '1px solid rgb(200,200,200)',
+                color: 'white'
+            }}
+        >
+            {children}
+        </tfoot>
     )
 }
 export default function Table({ children }: { children: ReactNode }) {
@@ -69,14 +88,15 @@ export default function Table({ children }: { children: ReactNode }) {
                 padding: "18px",
                 borderRadius: "12px",
                 overflowX: "auto",
-                border: "1px solid rgba(26, 26, 26, 0.3)",
             }}
         >
             <table
                 style={{
+                    border: "1px solid rgba(26, 26, 26, 0.3)",
                     borderCollapse: "separate",
                     borderSpacing: 0,
-                    width: "100%",
+                    borderRadius: '0.5em',
+                    overflow: "hidden",
                     tableLayout: "fixed",
                     color: "inherit",
                 }}
