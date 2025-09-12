@@ -32,8 +32,8 @@ export const Default: Story = {
         </TableRow>
         <TableFooter>
           <TableRow>
-            <TableColumn></TableColumn>
-            <TableColumn></TableColumn>
+            <TableColumn> </TableColumn>
+            <TableColumn> </TableColumn>
             <TableColumn>Footer 1</TableColumn>
           </TableRow>
         </TableFooter>
