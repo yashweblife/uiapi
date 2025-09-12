@@ -52,7 +52,11 @@ function App() {
               <TableRow>
                 <TableColumn>{route.path}</TableColumn>
                 <TableColumn>{route.method}</TableColumn>
-                {route.method == 'get' ? <TableColumn>Attach Body?</TableColumn> : null}
+                {route.method == 'get' ? <TableColumn>
+                  <Button click={() => { }}>
+                    Attach Body?
+                  </Button>
+                </TableColumn> : null}
                 <TableColumn>
                   <Button click={() => attemptSend(route)}>Send</Button>
                 </TableColumn>
