@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import Button from '../components/Button/Button';
 import List, { Item, ListFooter, ListHeader } from '../components/List/List';
 
 const meta = {
@@ -19,13 +18,7 @@ export const Default: Story = {
       <Item>Item 2</Item>
       <Item>Item 3</Item>
       <Item>Item 4</Item>
-      <Item>Item 5
-        <Button
-          click={() => { }}
-        >
-          Button
-        </Button>
-      </Item>
+      <Item>Item 5</Item>
       <ListFooter>Footer</ListFooter>
     </>
   }
