@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import Index, { TableColumn, TableHeader, TableRow } from '../components/Table/index';
+import Index, { TableColumn, TableFooter, TableHeader, TableRow } from '../components/Table/index';
 
 const meta = {
   component: Index,
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 
+    children:
       <>
         <TableHeader headers={['Header 1', 'Header 2', 'Header 3']} />
         <TableRow>
@@ -30,6 +30,13 @@ export const Default: Story = {
           <TableColumn>Cell 2</TableColumn>
           <TableColumn>Cell 2</TableColumn>
         </TableRow>
+        <TableFooter>
+          <TableRow>
+            <TableColumn></TableColumn>
+            <TableColumn></TableColumn>
+            <TableColumn>Footer 1</TableColumn>
+          </TableRow>
+        </TableFooter>
       </>
   }
 };
